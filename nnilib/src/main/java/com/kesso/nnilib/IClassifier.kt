@@ -5,6 +5,7 @@ interface IClassifier {
     val shapeY: Int
     val channels: Int
 
+    val device: Device
     val modelPath: String
     val numberOfClasses: Int
     val labels: Array<String>
