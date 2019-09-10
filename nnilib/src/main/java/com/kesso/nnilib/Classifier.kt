@@ -10,17 +10,16 @@ import java.nio.ByteOrder
 import java.nio.MappedByteBuffer
 import java.nio.channels.FileChannel
 
-abstract class AbstractClassifier(
-    final override val shapeX: Int,
-    final override val shapeY: Int,
-    final override val channels: Int,
-    final override val device: Device,
-    final override val modelPath: String,
-    final override val numberOfClasses: Int,
-    final override val labels: Array<String>,
+class Classifier(
+    override val shapeX: Int,
+    override val shapeY: Int,
+    override val channels: Int,
+    override val device: Device,
+    override val modelPath: String,
+    override val numberOfClasses: Int,
+    override val labels: Array<String>,
     activity: Activity
 ) : IClassifier {
-
     private var model: MappedByteBuffer
     private var options: Interpreter.Options
     private var tfLite: Interpreter
@@ -78,6 +77,12 @@ abstract class AbstractClassifier(
         val length = fileDescription.declaredLength
 
         return fileChanel.map(FileChannel.MapMode.READ_ONLY, offset, length)
+    }
+
+    override fun recognize(image: ByteArray): List<Recognition> {
+
+
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     companion object {
