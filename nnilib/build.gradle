@@ -1,6 +1,12 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'maven-publish'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
 
 android {
     compileSdkVersion 29
@@ -36,9 +42,18 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation "androidx.core:core-ktx:+"
+    implementation "androidx.core:core-ktx:1.1.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
-repositories {
-    mavenCentral()
+
+publishing {
+    publications {
+        pluginPublication (MavenPublication) {
+            groupId     'com.kesso'
+            artifactId  'nni'
+            version     android.defaultConfig.versionName
+
+            artifact("$buildDir/outputs/aar/nnilib-release.aar")
+        }
+    }
 }
