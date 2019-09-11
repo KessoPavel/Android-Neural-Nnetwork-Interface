@@ -11,6 +11,7 @@ import java.nio.MappedByteBuffer
 import java.nio.channels.FileChannel
 import java.util.*
 import kotlin.Comparator
+import kotlin.collections.ArrayList
 
 class Classifier(
     override val shapeX: Int,
@@ -29,14 +30,11 @@ class Classifier(
     private var gpuDelegate: GpuDelegate? = null
     private var inputShapeData: ByteBuffer
 
-    private val comparator: Comparator<Recognition>
-    private val queue: PriorityQueue<Recognition>
-
     init {
         require(shapeX > 0) { "Classifier init error. shapeX must be greater than zero." }
         require(shapeY > 0) { "Classifier init error. shapeY must be greater than zero." }
         require(channels > 0) { "Classifier init error. channels must be greater than zero." }
-        require(numberOfClasses < 0) { "Classifier init error. numberOfClasses must be greater than zero." }
+        require(numberOfClasses > 0) { "Classifier init error. numberOfClasses must be greater than zero." }
 
         if(labels.size != numberOfClasses)
             throw ArrayIndexOutOfBoundsException("Classifier init error. Label length must match the number of classes.")
@@ -64,9 +62,6 @@ class Classifier(
                     * pixelSize
         )
         inputShapeData.order(ByteOrder.nativeOrder())
-
-        comparator = Comparator { first, second -> first.confidence.compareTo(second.confidence) }
-        queue = PriorityQueue(numberOfClasses, comparator)
     }
 
 
@@ -83,19 +78,21 @@ class Classifier(
 
     override fun classify(image: ByteArray): List<Recognition> {
         val predict = arrayOf(FloatArray(numberOfClasses))
-        queue.clear()
+        val recognitions = ArrayList<Recognition>()
 
         preProcessing(image)
         tfLite.run(inputShapeData, predict)
 
-        for (i in 0..numberOfClasses){
-            queue.add(Recognition(i.toString(), labels[i],predict[0][i]))
+        for (i in 0 until numberOfClasses){
+            recognitions.add(Recognition(i.toString(), labels[i],predict[0][i]))
         }
 
-        return queue.toList()
+        return recognitions
     }
 
     private fun preProcessing(image: ByteArray) {
+        inputShapeData.position(0)
+
         for (pixel in image){
             inputShapeData.putFloat(preProcessor.preProcessing(pixel))
         }

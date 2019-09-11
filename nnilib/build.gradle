@@ -53,7 +53,7 @@ publishing {
             artifactId  'nni'
             version     android.defaultConfig.versionName
 
-            artifact("$buildDir/outputs/aar/nnilib-release.aar")
+            artifact("$buildDir/outputs/aar/nnilib-debug.aar")
         }
     }
 }
