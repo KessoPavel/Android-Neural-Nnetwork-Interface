@@ -10,5 +10,7 @@ interface IClassifier {
     val numberOfClasses: Int
     val labels: Array<String>
 
-    fun recognize(image: ByteArray): List<Recognition>
+    val preProcessor: PreProcessor
+
+    fun classify(image: ByteArray): List<Recognition>
 }

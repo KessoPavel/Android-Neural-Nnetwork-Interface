@@ -9,6 +9,8 @@ import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.nio.MappedByteBuffer
 import java.nio.channels.FileChannel
+import java.util.*
+import kotlin.Comparator
 
 class Classifier(
     override val shapeX: Int,
@@ -18,6 +20,7 @@ class Classifier(
     override val modelPath: String,
     override val numberOfClasses: Int,
     override val labels: Array<String>,
+    override val preProcessor: PreProcessor,
     activity: Activity
 ) : IClassifier {
     private var model: MappedByteBuffer
@@ -26,18 +29,14 @@ class Classifier(
     private var gpuDelegate: GpuDelegate? = null
     private var inputShapeData: ByteBuffer
 
+    private val comparator: Comparator<Recognition>
+    private val queue: PriorityQueue<Recognition>
+
     init {
-        if (shapeX <= 0)
-            throw IllegalArgumentException("Classifier init error. shapeX must be greater than zero.")
-
-        if (shapeY <= 0)
-            throw IllegalArgumentException("Classifier init error. shapeY must be greater than zero.")
-
-        if (channels <= 0)
-            throw IllegalArgumentException("Classifier init error. channels must be greater than zero.")
-
-        if (numberOfClasses >= 0)
-            throw IllegalArgumentException("Classifier init error. numberOfClasses must be greater than zero.")
+        require(shapeX > 0) { "Classifier init error. shapeX must be greater than zero." }
+        require(shapeY > 0) { "Classifier init error. shapeY must be greater than zero." }
+        require(channels > 0) { "Classifier init error. channels must be greater than zero." }
+        require(numberOfClasses < 0) { "Classifier init error. numberOfClasses must be greater than zero." }
 
         if(labels.size != numberOfClasses)
             throw ArrayIndexOutOfBoundsException("Classifier init error. Label length must match the number of classes.")
@@ -65,6 +64,9 @@ class Classifier(
                     * pixelSize
         )
         inputShapeData.order(ByteOrder.nativeOrder())
+
+        comparator = Comparator { first, second -> first.confidence.compareTo(second.confidence) }
+        queue = PriorityQueue(numberOfClasses, comparator)
     }
 
 
@@ -79,10 +81,24 @@ class Classifier(
         return fileChanel.map(FileChannel.MapMode.READ_ONLY, offset, length)
     }
 
-    override fun recognize(image: ByteArray): List<Recognition> {
+    override fun classify(image: ByteArray): List<Recognition> {
+        val predict = arrayOf(FloatArray(numberOfClasses))
+        queue.clear()
 
+        preProcessing(image)
+        tfLite.run(inputShapeData, predict)
 
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        for (i in 0..numberOfClasses){
+            queue.add(Recognition(i.toString(), labels[i],predict[0][i]))
+        }
+
+        return queue.toList()
+    }
+
+    private fun preProcessing(image: ByteArray) {
+        for (pixel in image){
+            inputShapeData.putFloat(preProcessor.preProcessing(pixel))
+        }
     }
 
     companion object {
