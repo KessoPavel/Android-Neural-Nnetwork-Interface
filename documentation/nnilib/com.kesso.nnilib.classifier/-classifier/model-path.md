@@ -6,5 +6,8 @@
 
 Overrides [IClassifier.modelPath](../-i-classifier/model-path.md)
 
-way to a frozen neural network model
+сожержит путь к файлу .tflite
 
+### Property
+
+`modelPath` - сожержит путь к файлу .tflite

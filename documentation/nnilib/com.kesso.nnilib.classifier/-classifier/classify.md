@@ -8,8 +8,7 @@ Overrides [IClassifier.classify](../-i-classifier/classify.md)
 
 ### Parameters
 
-`image` - input image
+`image` -
 
 **Return**
-list of predictions. the number of predictions([Recognition](../../com.kesso.nnilib.recognition/-recognition/index.md)) is equal to the number of classes
 

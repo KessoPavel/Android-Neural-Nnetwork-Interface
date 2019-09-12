@@ -2,5 +2,8 @@
 
 # modelPath
 
-`fun modelPath(modelPath: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Classifier.Builder`](index.md)
-`var modelPath: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?`
+`fun modelPath(modelPath: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Classifier.Builder`](index.md)`var modelPath: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?`
+
+### Property
+
+`modelPath` - 

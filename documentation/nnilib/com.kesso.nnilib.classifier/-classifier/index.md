@@ -4,30 +4,32 @@
 
 `class Classifier : `[`IClassifier`](../-i-classifier/index.md)
 
+классификатор изображения основанный на .tflite модели нейронной сети
+
 ### Types
 
 | Name | Summary |
 |---|---|
-| [Builder](-builder/index.md) | `data class Builder` |
+| [Builder](-builder/index.md) | `data class Builder`<br>TODO |
 
 ### Constructors
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `Classifier(shapeX: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, shapeY: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, channels: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, device: `[`Device`](../-device/index.md)`, modelPath: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, numberOfClasses: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, labels: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>, preProcessor: `[`IPreProcessor`](../../com.kesso.nnilib.pre-processor/-i-pre-processor/index.md)`, activity: `[`Activity`](https://developer.android.com/reference/android/app/Activity.html)`)` |
+| [&lt;init&gt;](-init-.md) | `Classifier(shapeX: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, shapeY: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, channels: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, device: `[`Device`](../-device/index.md)`, modelPath: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, numberOfClasses: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, labels: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>, preProcessor: `[`IPreProcessor`](../../com.kesso.nnilib.pre-processor/-i-pre-processor/index.md)`, activity: `[`Activity`](https://developer.android.com/reference/android/app/Activity.html)`)`<br>классификатор изображения основанный на .tflite модели нейронной сети |
 
 ### Properties
 
 | Name | Summary |
 |---|---|
-| [channels](channels.md) | `val channels: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>number of channels in the input image |
-| [device](device.md) | `val device: `[`Device`](../-device/index.md)<br>device on which the calculations will be performed |
-| [labels](labels.md) | `val labels: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>class names |
-| [modelPath](model-path.md) | `val modelPath: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>way to a frozen neural network model |
-| [numberOfClasses](number-of-classes.md) | `val numberOfClasses: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>number of classes |
-| [preProcessor](pre-processor.md) | `val preProcessor: `[`IPreProcessor`](../../com.kesso.nnilib.pre-processor/-i-pre-processor/index.md)<br>input image pre processor |
-| [shapeX](shape-x.md) | `val shapeX: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>input image width (in pixels) |
-| [shapeY](shape-y.md) | `val shapeY: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>input image height (in pixels) |
+| [channels](channels.md) | `val channels: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
+| [device](device.md) | `val device: `[`Device`](../-device/index.md) |
+| [labels](labels.md) | `val labels: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>` |
+| [modelPath](model-path.md) | `val modelPath: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>сожержит путь к файлу .tflite |
+| [numberOfClasses](number-of-classes.md) | `val numberOfClasses: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
+| [preProcessor](pre-processor.md) | `val preProcessor: `[`IPreProcessor`](../../com.kesso.nnilib.pre-processor/-i-pre-processor/index.md) |
+| [shapeX](shape-x.md) | `val shapeX: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
+| [shapeY](shape-y.md) | `val shapeY: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 
 ### Functions
 

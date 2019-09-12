@@ -6,5 +6,10 @@
 
 Overrides [IClassifier.preProcessor](../-i-classifier/pre-processor.md)
 
-input image pre processor
+### Property
 
+`preProcessor` -
+
+### Parameters
+
+`activity` - 

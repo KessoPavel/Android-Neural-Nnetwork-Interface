@@ -3,3 +3,9 @@
 # build
 
 `fun build(): `[`Classifier`](../index.md)
+
+build new classifier
+
+**Return**
+classifier
+

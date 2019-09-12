@@ -6,5 +6,6 @@
 
 Overrides [IClassifier.shapeY](../-i-classifier/shape-y.md)
 
-input image height (in pixels)
+### Property
 
+`shapeY` - 

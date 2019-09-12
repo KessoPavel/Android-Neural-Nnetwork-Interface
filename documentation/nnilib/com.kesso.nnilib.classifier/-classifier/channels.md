@@ -6,5 +6,6 @@
 
 Overrides [IClassifier.channels](../-i-classifier/channels.md)
 
-number of channels in the input image
+### Property
 
+`channels` - 

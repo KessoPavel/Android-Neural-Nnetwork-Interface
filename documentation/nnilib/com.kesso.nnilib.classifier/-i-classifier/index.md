@@ -5,6 +5,7 @@
 `interface IClassifier`
 
 describes the general structure of the image classifier
+описывает интерфейс создания и использования классификатора изображения
 
 ### Properties
 
@@ -29,4 +30,4 @@ describes the general structure of the image classifier
 
 | Name | Summary |
 |---|---|
-| [Classifier](../-classifier/index.md) | `class Classifier : `[`IClassifier`](./index.md) |
+| [Classifier](../-classifier/index.md) | `class Classifier : `[`IClassifier`](./index.md)<br>классификатор изображения основанный на .tflite модели нейронной сети |

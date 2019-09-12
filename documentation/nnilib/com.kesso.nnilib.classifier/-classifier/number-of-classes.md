@@ -6,5 +6,6 @@
 
 Overrides [IClassifier.numberOfClasses](../-i-classifier/number-of-classes.md)
 
-number of classes
+### Property
 
+`numberOfClasses` - 

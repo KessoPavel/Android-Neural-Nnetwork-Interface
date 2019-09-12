@@ -6,5 +6,6 @@
 
 Overrides [IClassifier.device](../-i-classifier/device.md)
 
-device on which the calculations will be performed
+### Property
 
+`device` - 

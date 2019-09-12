@@ -38,7 +38,10 @@ android {
         outputFormat = 'gfm'
         outputDirectory = doc_out
 
+        skipEmptyPackages = true
         skipDeprecated = true
+
+
     }
 }
 

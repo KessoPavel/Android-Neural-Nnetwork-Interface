@@ -12,6 +12,20 @@ import java.nio.MappedByteBuffer
 import java.nio.channels.FileChannel
 import kotlin.collections.ArrayList
 
+/**
+ * классификатор изображения основанный на .tflite модели нейронной сети
+ *
+ *
+ * @property shapeX
+ * @property shapeY
+ * @property channels
+ * @property device
+ * @property modelPath сожержит путь к файлу .tflite
+ * @property numberOfClasses
+ * @property labels
+ * @property preProcessor
+ * @param activity
+ */
 class Classifier(
     override val shapeX: Int,
     override val shapeY: Int,
@@ -75,6 +89,11 @@ class Classifier(
         return fileChanel.map(FileChannel.MapMode.READ_ONLY, offset, length)
     }
 
+    /**
+     *
+     * @param image
+     * @return
+     */
     override fun classify(image: ByteArray): List<Recognition> {
         val predict = arrayOf(FloatArray(numberOfClasses))
         val recognitions = ArrayList<Recognition>()
@@ -107,6 +126,19 @@ class Classifier(
         const val pixelSize = 4
     }
 
+    /**
+     * TODO
+     *
+     * @property shapeX
+     * @property shapeY
+     * @property channels
+     * @property device
+     * @property modelPath
+     * @property numberOfClasses
+     * @property labels
+     * @property preProcessor
+     * @property activity
+     */
     data class Builder(
         var shapeX: Int? = null,
         var shapeY: Int? = null,
@@ -127,6 +159,12 @@ class Classifier(
         fun labels(labels: Array<String>) = apply { this.labels = labels }
         fun preProcessor(preProcessor: IPreProcessor) = apply { this.preProcessor = preProcessor }
         fun activity(activity: Activity) = apply { this.activity = activity }
+
+        /**
+         * build new classifier
+         *
+         * @return classifier
+         */
         fun build(): Classifier =
             Classifier(
                 shapeX = shapeX!!,

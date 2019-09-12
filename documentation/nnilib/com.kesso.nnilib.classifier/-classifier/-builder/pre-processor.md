@@ -2,5 +2,8 @@
 
 # preProcessor
 
-`fun preProcessor(preProcessor: `[`IPreProcessor`](../../../com.kesso.nnilib.pre-processor/-i-pre-processor/index.md)`): `[`Classifier.Builder`](index.md)
-`var preProcessor: `[`IPreProcessor`](../../../com.kesso.nnilib.pre-processor/-i-pre-processor/index.md)`?`
+`fun preProcessor(preProcessor: `[`IPreProcessor`](../../../com.kesso.nnilib.pre-processor/-i-pre-processor/index.md)`): `[`Classifier.Builder`](index.md)`var preProcessor: `[`IPreProcessor`](../../../com.kesso.nnilib.pre-processor/-i-pre-processor/index.md)`?`
+
+### Property
+
+`preProcessor` - 

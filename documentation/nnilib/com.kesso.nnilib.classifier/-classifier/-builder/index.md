@@ -4,11 +4,13 @@
 
 `data class Builder`
 
+TODO
+
 ### Constructors
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `Builder(shapeX: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`? = null, shapeY: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`? = null, channels: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`? = null, device: `[`Device`](../../-device/index.md)`? = null, modelPath: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, numberOfClasses: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`? = null, labels: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`> = emptyArray(), preProcessor: `[`IPreProcessor`](../../../com.kesso.nnilib.pre-processor/-i-pre-processor/index.md)`? = null, activity: `[`Activity`](https://developer.android.com/reference/android/app/Activity.html)`? = null)` |
+| [&lt;init&gt;](-init-.md) | `Builder(shapeX: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`? = null, shapeY: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`? = null, channels: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`? = null, device: `[`Device`](../../-device/index.md)`? = null, modelPath: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, numberOfClasses: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`? = null, labels: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`> = emptyArray(), preProcessor: `[`IPreProcessor`](../../../com.kesso.nnilib.pre-processor/-i-pre-processor/index.md)`? = null, activity: `[`Activity`](https://developer.android.com/reference/android/app/Activity.html)`? = null)`<br>TODO |
 
 ### Properties
 
@@ -29,7 +31,7 @@
 | Name | Summary |
 |---|---|
 | [activity](activity.md) | `fun activity(activity: `[`Activity`](https://developer.android.com/reference/android/app/Activity.html)`): `[`Classifier.Builder`](./index.md) |
-| [build](build.md) | `fun build(): `[`Classifier`](../index.md) |
+| [build](build.md) | `fun build(): `[`Classifier`](../index.md)<br>build new classifier |
 | [channels](channels.md) | `fun channels(channels: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`Classifier.Builder`](./index.md) |
 | [device](device.md) | `fun device(device: `[`Device`](../../-device/index.md)`): `[`Classifier.Builder`](./index.md) |
 | [labels](labels.md) | `fun labels(labels: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>): `[`Classifier.Builder`](./index.md) |

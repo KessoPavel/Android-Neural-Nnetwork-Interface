@@ -6,5 +6,6 @@
 
 Overrides [IClassifier.shapeX](../-i-classifier/shape-x.md)
 
-input image width (in pixels)
+### Property
 
+`shapeX` - 

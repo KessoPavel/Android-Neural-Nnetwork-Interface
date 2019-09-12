@@ -2,5 +2,8 @@
 
 # device
 
-`fun device(device: `[`Device`](../../-device/index.md)`): `[`Classifier.Builder`](index.md)
-`var device: `[`Device`](../../-device/index.md)`?`
+`fun device(device: `[`Device`](../../-device/index.md)`): `[`Classifier.Builder`](index.md)`var device: `[`Device`](../../-device/index.md)`?`
+
+### Property
+
+`device` - 

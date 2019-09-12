@@ -6,3 +6,9 @@
 
 Overrides [IPreProcessor.preProcessing](../-i-pre-processor/pre-processing.md)
 
+### Parameters
+
+`pixel` -
+
+**Return**
+

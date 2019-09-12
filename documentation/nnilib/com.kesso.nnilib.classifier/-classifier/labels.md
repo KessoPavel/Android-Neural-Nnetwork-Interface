@@ -6,5 +6,6 @@
 
 Overrides [IClassifier.labels](../-i-classifier/labels.md)
 
-class names
+### Property
 
+`labels` - 
