@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'maven-publish'
+apply plugin: 'org.jetbrains.dokka-android'
 
 repositories {
     mavenCentral()
@@ -30,6 +31,15 @@ android {
         }
     }
 
+    dokka {
+        String doc_out = "${project.projectDir.toString()}/../documentation"
+        print("out dir = ${doc_out}")
+
+        outputFormat = 'gfm'
+        outputDirectory = doc_out
+
+        skipDeprecated = true
+    }
 }
 
 dependencies {

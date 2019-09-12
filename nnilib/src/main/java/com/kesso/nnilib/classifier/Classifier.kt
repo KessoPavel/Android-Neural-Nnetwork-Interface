@@ -1,16 +1,15 @@
-package com.kesso.nnilib
+package com.kesso.nnilib.classifier
 
 import android.app.Activity
+import com.kesso.nnilib.preProcessor.IPreProcessor
+import com.kesso.nnilib.recognition.Recognition
 import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.gpu.GpuDelegate
 import java.io.FileInputStream
-import java.lang.IllegalArgumentException
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.nio.MappedByteBuffer
 import java.nio.channels.FileChannel
-import java.util.*
-import kotlin.Comparator
 import kotlin.collections.ArrayList
 
 class Classifier(
@@ -21,7 +20,7 @@ class Classifier(
     override val modelPath: String,
     override val numberOfClasses: Int,
     override val labels: Array<String>,
-    override val preProcessor: PreProcessor,
+    override val preProcessor: IPreProcessor,
     activity: Activity
 ) : IClassifier {
     private var model: MappedByteBuffer
@@ -84,7 +83,13 @@ class Classifier(
         tfLite.run(inputShapeData, predict)
 
         for (i in 0 until numberOfClasses){
-            recognitions.add(Recognition(i.toString(), labels[i],predict[0][i]))
+            recognitions.add(
+                Recognition(
+                    i.toString(),
+                    labels[i],
+                    predict[0][i]
+                )
+            )
         }
 
         return recognitions
@@ -100,5 +105,39 @@ class Classifier(
 
     companion object {
         const val pixelSize = 4
+    }
+
+    data class Builder(
+        var shapeX: Int? = null,
+        var shapeY: Int? = null,
+        var channels: Int? = null,
+        var device: Device? = null,
+        var modelPath: String? = null,
+        var numberOfClasses: Int? = null,
+        var labels: Array<String> = emptyArray(),
+        var preProcessor: IPreProcessor? = null,
+        var activity: Activity? = null)
+    {
+        fun shapeX(shapeX: Int) = apply { this.shapeX = shapeX }
+        fun shapeY(shapeY: Int) = apply { this.shapeY = shapeY }
+        fun channels(channels: Int) = apply { this.channels = channels }
+        fun device(device: Device) = apply { this.device = device }
+        fun modelPath(modelPath: String) = apply { this.modelPath = modelPath }
+        fun numberOfClasses(numberOfClasses: Int) = apply { this.numberOfClasses = numberOfClasses }
+        fun labels(labels: Array<String>) = apply { this.labels = labels }
+        fun preProcessor(preProcessor: IPreProcessor) = apply { this.preProcessor = preProcessor }
+        fun activity(activity: Activity) = apply { this.activity = activity }
+        fun build(): Classifier =
+            Classifier(
+                shapeX = shapeX!!,
+                shapeY = shapeY!!,
+                channels = channels!!,
+                device = device!!,
+                modelPath = modelPath!!,
+                numberOfClasses = numberOfClasses!!,
+                labels = labels,
+                preProcessor = preProcessor!!,
+                activity = activity!!
+            )
     }
 }

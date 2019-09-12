@@ -1,6 +1,4 @@
-package com.kesso.nnilib
-
-import android.graphics.RectF
+package com.kesso.nnilib.recognition
 
 data class Recognition (
     val id: String,

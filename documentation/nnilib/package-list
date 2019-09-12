@@ -1,0 +1,6 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+
+com.kesso.nnilib.classifier
+com.kesso.nnilib.preProcessor
+com.kesso.nnilib.recognition
