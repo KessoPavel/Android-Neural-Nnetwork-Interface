@@ -7,7 +7,6 @@ import com.kesso.nnilib.recognition.Recognition
  * describes the general structure of the image classifier
  * описывает интерфейс создания и использования классификатора изображения
  *
- *
  */
 interface IClassifier {
     /**
