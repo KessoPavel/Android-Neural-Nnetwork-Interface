@@ -3,3 +3,12 @@
 # getPreProcessor
 
 `fun getPreProcessor(type: `[`PreProcessor`](../-pre-processor/index.md)`): `[`IPreProcessor`](../-i-pre-processor/index.md)
+
+TODO
+
+### Parameters
+
+`type` -
+
+**Return**
+

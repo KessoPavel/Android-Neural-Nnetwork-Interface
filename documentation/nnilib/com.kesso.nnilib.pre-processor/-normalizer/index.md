@@ -4,11 +4,13 @@
 
 `class Normalizer : `[`IPreProcessor`](../-i-pre-processor/index.md)
 
+TODO
+
 ### Constructors
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `Normalizer()` |
+| [&lt;init&gt;](-init-.md) | `Normalizer()`<br>TODO |
 
 ### Functions
 

@@ -4,11 +4,13 @@
 
 `class Empty : `[`IPreProcessor`](../-i-pre-processor/index.md)
 
+TODO
+
 ### Constructors
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `Empty()` |
+| [&lt;init&gt;](-init-.md) | `Empty()`<br>TODO |
 
 ### Functions
 
