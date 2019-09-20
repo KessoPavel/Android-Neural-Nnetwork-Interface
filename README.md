@@ -4,8 +4,8 @@ NNI is a library which makes using neural networks in android is easier.
 
 NNI consists of several parts:
 
-* (Simple Network) [example/SimpleNetworkExample/README.md]
-* Image Classifier
+* [Simple Network](https://github.com/KessoPavel/Android-Neural-Nnetwork-Interface/tree/master/example/SimpleNetworkExample)
+* [Image Classifier](https://github.com/KessoPavel/Android-Neural-Nnetwork-Interface/tree/master/example/ImageClassifierExample)
 
 ## Using
 
