@@ -1,6 +1,7 @@
 package com.kesso.nnilib.classifier
 
 import android.app.Activity
+import com.kesso.nnilib.Device
 import com.kesso.nnilib.preProcessor.IPreProcessor
 import com.kesso.nnilib.recognition.Recognition
 import org.tensorflow.lite.Interpreter

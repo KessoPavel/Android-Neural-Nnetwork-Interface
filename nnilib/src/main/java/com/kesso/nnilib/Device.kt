@@ -1,4 +1,4 @@
-package com.kesso.nnilib.classifier
+package com.kesso.nnilib
 
 enum class Device {
     CPU,
